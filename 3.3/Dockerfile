@@ -8,6 +8,6 @@ RUN apk --update add nginx tzdata \
     && sed -i 's|#user  nobody;|user root;|g' /etc/nginx/nginx.conf \
     && sed -i 's|#pid        run/nginx.pid;|pid /var/run/nginx.pid;|g' /etc/nginx/nginx.conf
     
-EXPOSE 80 433
+EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
