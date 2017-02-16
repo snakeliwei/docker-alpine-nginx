@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER Lyndon Li <snakeliwei@qq.com>
+MAINTAINER Lyndon Li <snakeliwei@gmail.com>
 
 RUN apk --update add nginx tzdata \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
