@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.5
 MAINTAINER Lyndon Li <snakeliwei@qq.com>
 
 RUN apk --update add nginx tzdata \
