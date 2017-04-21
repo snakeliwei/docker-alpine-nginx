@@ -1,7 +1,7 @@
 FROM alpine:edge
 MAINTAINER Lyndon Li <snakeliwei@gmail.com>
 
-RUN apk --update add nginx tzdata \
+RUN apk add --update --no-cache nginx tzdata \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del tzdata \
     && rm -rf /var/cache/apk/* \
