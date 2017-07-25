@@ -4,7 +4,6 @@ MAINTAINER Lyndon Li <snakeliwei@gmail.com>
 RUN apk add --update --no-cache nginx tzdata \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del tzdata \
-    && rm -rf /var/cache/apk/* \
     && mkdir -p /etc/nginx/sites-enabled \
     && mkdir -p /ssl \
     # forward request and error logs to docker log collector
