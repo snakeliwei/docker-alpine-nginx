@@ -123,6 +123,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && make install \
     && cd /usr/src/VeryNginx-0.3.3 \
     && cp -r -f ./verynginx /verynginx \
+    && sed -i 's/\/opt\/verynginx\/verynginx/\/verynginx/g' /verynginx/nginx_conf/in_http_block.conf \
 	&& cd /usr/src/nginx-$NGINX_VERSION \
 	&& ./configure $CONFIG --with-debug \
 	&& make -j$(getconf _NPROCESSORS_ONLN) \
