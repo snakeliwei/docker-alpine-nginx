@@ -96,17 +96,17 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& mkdir -p /usr/src \
 	&& tar -zxC /usr/src -f nginx.tar.gz \
 	&& rm nginx.tar.gz \
-    && cd /usr/src
+    && cd /usr/src \
     && curl -fSL http://luajit.org/download/LuaJIT-$LuaJIT_VERSION.zip -o LuaJIT.zip \
     && curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.zip -o ngxdevel.zip \
     && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.10.zip -o ngxlua.zip \
     && curl -fSL https://github.com/grahamedgecombe/nginx-ct/archive/v1.3.2.zip -o nginxct.zip \
     && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_0_2l.zip -o openssl.zip \
-    && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip
+    && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/cloudflare/sslconfig.git \
     && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
-    && mv openssl-OpenSSL_1_0_2l/ openssl
+    && mv openssl-OpenSSL_1_0_2l/ openssl \
     && cd ngx_brotli \
     && git submodule update --init \
     && cd /usr/src/openssl \
