@@ -2,7 +2,7 @@ FROM alpine:3.6
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
-ENV NGINX_VERSION 1.13.5
+ENV NGINX_VERSION 1.13.6
 ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
