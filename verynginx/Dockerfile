@@ -1,8 +1,8 @@
-FROM alpine:3.6
+FROM alpine
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
-ENV NGINX_VERSION 1.13.7
+ENV NGINX_VERSION 1.13.8
 ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
@@ -108,12 +108,12 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.zip -o ngxdevel.zip \
     && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.10.zip -o ngxlua.zip \
     && curl -fSL https://github.com/grahamedgecombe/nginx-ct/archive/v1.3.2.zip -o nginxct.zip \
-    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_0_2l.zip -o openssl.zip \
+    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_0_2n.zip -o openssl.zip \
     && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/cloudflare/sslconfig.git \
     && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
-    && mv openssl-OpenSSL_1_0_2l/ openssl \
+    && mv openssl-OpenSSL_1_0_2n/ openssl \
     && cd ngx_brotli \
     && git submodule update --init \
     && cd /usr/src/openssl \
