@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
@@ -108,12 +108,12 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.zip -o ngxdevel.zip \
     && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.13.zip -o ngxlua.zip \
     && curl -fSL https://github.com/grahamedgecombe/nginx-ct/archive/v1.3.2.zip -o nginxct.zip \
-    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_0_2p.zip -o openssl.zip \
+    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.zip -o openssl.zip \
     && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/cloudflare/sslconfig.git \
     && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
-    && mv openssl-OpenSSL_1_0_2p/ openssl \
+    && mv openssl-OpenSSL_1_1_1/ openssl \
     && cd ngx_brotli \
     && git submodule update --init \
     && cd /usr/src/openssl \
