@@ -27,7 +27,6 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
         --with-ld-opt='-Wl,-rpath,/usr/local/lib/' \
         --add-module=/usr/src/ngx_devel_kit-0.3.0 \
         --add-module=/usr/src/lua-nginx-module-0.10.13 \
-        --add-module=/usr/src/ngx_brotli \
         --add-module=/usr/src/nginx-ct-1.3.2 \
         --with-openssl=/usr/src/openssl \
 		--with-http_ssl_module \
@@ -111,11 +110,11 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.zip -o openssl.zip \
     && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/cloudflare/sslconfig.git \
-    && git clone https://github.com/google/ngx_brotli.git \
+    # && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
     && mv openssl-OpenSSL_1_1_1/ openssl \
-    && cd ngx_brotli \
-    && git submodule update --init \
+    # && cd ngx_brotli \
+    # && git submodule update --init \
     && cd /usr/src/openssl \
     && patch -p1 < /usr/src/sslconfig/patches/openssl__chacha20_poly1305_draft_and_rfc_ossl102j.patch \
     && cd /usr/src/LuaJIT-2.1.0-beta3 \
