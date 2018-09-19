@@ -29,6 +29,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
         --add-module=/usr/src/lua-nginx-module-0.10.13 \
         --add-module=/usr/src/nginx-ct-1.3.2 \
         --with-openssl=/usr/src/openssl \
+		--with-openssl-opt=enable-tls1_3 \
 		--with-http_ssl_module \
 		--with-http_realip_module \
 		--with-http_addition_module \
