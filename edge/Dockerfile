@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.8
 MAINTAINER Lyndon Li <snakeliwei@gmail.com>
 
 RUN apk add --update --no-cache nginx tzdata \
