@@ -1,7 +1,7 @@
-FROM alpine:3.8
+FROM alpine:edge
 MAINTAINER Lyndon Li <snakeliwei@gmail.com>
 
-RUN apk add --update --no-cache nginx tzdata \
+RUN apk add --update --no-cache nginx dhclient tzdata \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del tzdata \
     && mkdir -p /etc/nginx/sites-enabled \
