@@ -89,9 +89,9 @@ RUN set -x \
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/error.log
+	&& ln -sf /dev/stderr /var/log/nginx/error.log \
     && mkdir -p /etc/nginx/sites-enabled \
-    && mkdir -p /ssl \
+    && mkdir -p /ssl
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
