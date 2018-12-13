@@ -2,7 +2,7 @@ FROM alpine:3.8
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
-ENV NGINX_VERSION 1.15.6
+ENV NGINX_VERSION 1.15.7
 ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
@@ -30,6 +30,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		--add-module=/usr/src/ngx_brotli \
 		--add-module=/usr/src/nginx-ct-1.3.2 \
         --with-openssl=/usr/src/openssl \
+		--with-openssl-opt=enable-tls1_3 \
 		--with-http_ssl_module \
 		--with-http_realip_module \
 		--with-http_addition_module \
@@ -115,7 +116,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && unzip '*.zip' \
     && mv openssl-OpenSSL_1_1_1a/ openssl \
     && cd ngx_brotli \
-    && git submodule update --init \
+    && git submodule update --init --recursive \
     && cd /usr/src/LuaJIT-2.1.0-beta3 \
     && make \
     && make install \
