@@ -2,7 +2,7 @@ FROM alpine:3.9
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
-ENV NGINX_VERSION 1.15.7
+ENV NGINX_VERSION 1.15.12
 ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
@@ -25,7 +25,7 @@ RUN CONFIG="\
 		--group=nginx \
         --with-ld-opt='-Wl,-rpath,/usr/local/lib/' \
         --add-module=/usr/src/ngx_devel_kit-0.3.0 \
-        --add-module=/usr/src/lua-nginx-module-0.10.13 \
+        --add-module=/usr/src/lua-nginx-module-0.10.14 \
 		--add-module=/usr/src/ngx_brotli \
 		--add-module=/usr/src/nginx-ct-1.3.2 \
         --with-openssl=/usr/src/openssl \
