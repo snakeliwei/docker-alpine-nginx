@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
@@ -7,8 +7,7 @@ ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
 
-RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
-	&& CONFIG="\
+RUN CONFIG="\
 		--prefix=/etc/nginx \
 		--sbin-path=/usr/sbin/nginx \
 		--modules-path=/usr/lib/nginx/modules \
@@ -80,11 +79,11 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
         pcre-dev \
     && apk add --no-cache \
 		dhclient \
-        gd \
-        geoip \
-        libgcc \
-        libxslt \
-        zlib \
+		gd \
+		geoip \
+		libgcc \
+		libxslt \
+		zlib \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
 #	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz.asc  -o nginx.tar.gz.asc \
@@ -108,13 +107,13 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && cd /usr/src \
     && curl -fSL http://luajit.org/download/LuaJIT-$LuaJIT_VERSION.zip -o LuaJIT.zip \
     && curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.zip -o ngxdevel.zip \
-    && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.13.zip -o ngxlua.zip \
+    && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.14.zip -o ngxlua.zip \
     && curl -fSL https://github.com/grahamedgecombe/nginx-ct/archive/v1.3.2.zip -o nginxct.zip \
-    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1a.zip -o openssl.zip \
+    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.zip -o openssl.zip \
     && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
-    && mv openssl-OpenSSL_1_1_1a/ openssl \
+    && mv openssl-OpenSSL_1_1_1b/ openssl \
     && cd ngx_brotli \
     && git submodule update --init --recursive \
     && cd /usr/src/LuaJIT-2.1.0-beta3 \
