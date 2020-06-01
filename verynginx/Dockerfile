@@ -1,8 +1,8 @@
-FROM alpine:3.11
+FROM alpine
 
 LABEL maintainer="lyndon <snakeliwei@gmail.com>"
 
-ENV NGINX_VERSION 1.18.0
+ENV NGINX_VERSION 1.19.0
 ENV LuaJIT_VERSION 2.1.0-beta3
 ENV LUAJIT_LIB /usr/local/lib
 ENV LUAJIT_INC /usr/local/include/luajit-2.1/
@@ -109,11 +109,11 @@ RUN CONFIG="\
     && curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.zip -o ngxdevel.zip \
     && curl -fSL https://github.com/openresty/lua-nginx-module/archive/v0.10.15.zip -o ngxlua.zip \
     && curl -fSL https://github.com/grahamedgecombe/nginx-ct/archive/v1.3.2.zip -o nginxct.zip \
-    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1c.zip -o openssl.zip \
+    && curl -fSL https://github.com/openssl/openssl/archive/OpenSSL_1_1_1g.zip -o openssl.zip \
     && curl -fSL https://github.com/alexazhou/VeryNginx/archive/v0.3.3.zip -o verynginx.zip \
     && git clone https://github.com/google/ngx_brotli.git \
     && unzip '*.zip' \
-    && mv openssl-OpenSSL_1_1_1c/ openssl \
+    && mv openssl-OpenSSL_1_1_1g openssl \
     && cd ngx_brotli \
     && git submodule update --init --recursive \
     && cd /usr/src/LuaJIT-2.1.0-beta3 \
