@@ -11,6 +11,7 @@ RUN apk add --update --no-cache nginx dhclient tzdata \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html /var/wwww/index.html
 
 EXPOSE 80 443
 STOPSIGNAL SIGTERM
